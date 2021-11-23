@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [Functionalites](#Functionalites)
-* [Live Demo](#Live Demo)
+* [Live Demo](#"Live Demo")
 
 
 
@@ -14,4 +14,4 @@
 
 
 ## Live Demo
-### <a href="https://zeyadta.github.io/Modal-Window/" >Here</a>
+### <a href="https://zeyadta.github.io/Landing-Page/" >Here</a>
