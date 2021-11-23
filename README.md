@@ -3,7 +3,7 @@
 ## Table of Contents
 
 * [Functionalites](#Functionalites)
-* [Live Demo](#"Live Demo")
+* [Live Demo](#LiveDemo)
 
 
 
@@ -13,5 +13,5 @@
 ### 3-scroll to sections
 
 
-## Live Demo
+## LiveDemo
 ### <a href="https://zeyadta.github.io/Landing-Page/" >Here</a>
