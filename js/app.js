@@ -65,7 +65,7 @@ for (let i = 0; i < sectionsNode.length; i++) {
 
   liElement.appendChild(anchorElement);
   ulNavBar.appendChild(liElement);
-  console.log(liElement);
+  // console.log(liElement);
 }
 
 // Add class 'active' to section when near top of viewport
