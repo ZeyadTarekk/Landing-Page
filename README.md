@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
+* [Functionalites](#Functionalites)
 
 ## Instructions
 
