@@ -35,15 +35,26 @@ const ulNavBar = document.getElementById("navbar__list");
 
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
-  if (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  )
-    return true;
-  else return false;
+  const mobile = window.matchMedia("(max-width: 400px)");
+  if (mobile.matches) {
+    if (
+      rect.top >= 0 &&
+      rect.bottom > 0 &&
+      rect.top < (window.innerHeight || document.documentElement.clientHeight)
+    )
+      return true;
+    else return false;
+  } else {
+    if (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    )
+      return true;
+    else return false;
+  }
 }
 
 /**
