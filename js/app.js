@@ -61,6 +61,34 @@ function isInViewport2(element) {
   const rect = element.getBoundingClientRect();
   return rect.top >= 0 && rect.top <= 300;
 }
+// functuion adds active class
+function addActiveClass() {
+  const sections = [];
+  for (let i = 0; i < sectionsNode.length; i++) {
+    sections[i] = isInViewport2(sectionsNode[i]);
+  }
+  for (let i = 0; i < sectionsNode.length; i++) {
+    if (sections[i]) {
+      if (!sectionsNode[i].classList.contains("your-active-class"))
+        sectionsNode[i].classList.add("your-active-class");
+      for (let j = 0; j < sectionsNode.length; j++) {
+        if (j == i) continue;
+        if (sectionsNode[j].classList.contains("your-active-class")) {
+          sectionsNode[j].classList.remove("your-active-class");
+        }
+      }
+    }
+  }
+}
+
+// function scrolls to a specific section
+function scrollToMySection(ev) {
+  ev.preventDefault();
+  document
+    .getElementById(sectionsNode[i].getAttribute("id"))
+    .scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -80,67 +108,16 @@ for (let i = 0; i < sectionsNode.length; i++) {
 
   liElement.appendChild(anchorElement);
   ulNavBar.appendChild(liElement);
-  // console.log(liElement);
 }
 
 // Add class 'active' to section when near top of viewport
 
-document.addEventListener("scroll", function () {
-  const sections = [];
-  for (let i = 0; i < sectionsNode.length; i++) {
-    sections[i] = isInViewport2(sectionsNode[i]);
-  }
-  // console.log(sections);
-  // const section1 = isInViewport(sectionsNode[0]);
-  // const section2 = isInViewport(sectionsNode[1]);
-  // const section3 = isInViewport(sectionsNode[2]);
-  // const section4 = isInViewport(sectionsNode[3]);
-
-  for (let i = 0; i < sectionsNode.length; i++) {
-    if (sections[i]) {
-      if (!sectionsNode[i].classList.contains("your-active-class"))
-        sectionsNode[i].classList.add("your-active-class");
-      for (let j = 0; j < sectionsNode.length; j++) {
-        if (j == i) continue;
-        if (sectionsNode[j].classList.contains("your-active-class")) {
-          sectionsNode[j].classList.remove("your-active-class");
-        }
-      }
-    }
-  }
-
-  // if (section1) {
-  //   if (!sectionsNode[0].classList.contains("your-active-class")) {
-  //     sectionsNode[0].classList.add("your-active-class");
-  //   }
-  //   for (let i = 1; i < sectionsNode.length; i++) {
-  //     if (sectionsNode[i].classList.contains("your-active-class")) {
-  //       sectionsNode[i].classList.remove("your-active-class");
-  //     }
-  //   }
-  // }
-  // if (section2) {
-  //   if (!sectionsNode[1].classList.contains("your-active-class")) {
-  //     sectionsNode[1].classList.add("your-active-class");
-  //   }
-  //   for (let i = 0; i < sectionsNode.length && i != 1; i++) {
-  //     if (sectionsNode[i].classList.contains("your-active-class")) {
-  //       sectionsNode[i].classList.remove("your-active-class");
-  //     }
-  //   }
-  // }
-});
+document.addEventListener("scroll", addActiveClass);
 
 // Scroll to anchor ID using scrollTO event
 const liNode = document.querySelectorAll(".menu__link");
-for (let i = 0; i < liNode.length; i++) {
-  liNode[i].addEventListener("click", function (ev) {
-    ev.preventDefault();
-    document
-      .getElementById(sectionsNode[i].getAttribute("id"))
-      .scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-}
+for (let i = 0; i < liNode.length; i++)
+  liNode[i].addEventListener("click", scrollToMySection);
 
 /**
  * End Main Functions
