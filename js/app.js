@@ -82,12 +82,6 @@ function addActiveClass() {
 }
 
 // function scrolls to a specific section
-function scrollToMySection(ev) {
-  ev.preventDefault();
-  document
-    .getElementById(sectionsNode[i].getAttribute("id"))
-    .scrollIntoView({ behavior: "smooth", block: "center" });
-}
 
 /**
  * End Helper Functions
@@ -125,6 +119,11 @@ for (let i = 0; i < sectionsNode.length; i++) {
 // Scroll to section on link click
 const liNode = document.querySelectorAll(".menu__link");
 for (let i = 0; i < liNode.length; i++)
-  liNode[i].addEventListener("click", scrollToMySection);
+  liNode[i].addEventListener("click", function (ev) {
+    ev.preventDefault();
+    document
+      .getElementById(sectionsNode[i].getAttribute("id"))
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 // Set sections as active
 document.addEventListener("scroll", addActiveClass);
