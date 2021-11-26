@@ -112,12 +112,7 @@ for (let i = 0; i < sectionsNode.length; i++) {
 
 // Add class 'active' to section when near top of viewport
 
-document.addEventListener("scroll", addActiveClass);
-
 // Scroll to anchor ID using scrollTO event
-const liNode = document.querySelectorAll(".menu__link");
-for (let i = 0; i < liNode.length; i++)
-  liNode[i].addEventListener("click", scrollToMySection);
 
 /**
  * End Main Functions
@@ -128,5 +123,8 @@ for (let i = 0; i < liNode.length; i++)
 // Build menu
 
 // Scroll to section on link click
-
+const liNode = document.querySelectorAll(".menu__link");
+for (let i = 0; i < liNode.length; i++)
+  liNode[i].addEventListener("click", scrollToMySection);
 // Set sections as active
+document.addEventListener("scroll", addActiveClass);
