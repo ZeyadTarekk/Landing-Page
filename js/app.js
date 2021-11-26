@@ -57,6 +57,10 @@ function isInViewport(element) {
   }
 }
 
+function isInViewport2(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top >= 0 && rect.top <= 300;
+}
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -84,7 +88,7 @@ for (let i = 0; i < sectionsNode.length; i++) {
 document.addEventListener("scroll", function () {
   const sections = [];
   for (let i = 0; i < sectionsNode.length; i++) {
-    sections[i] = isInViewport(sectionsNode[i]);
+    sections[i] = isInViewport2(sectionsNode[i]);
   }
   // console.log(sections);
   // const section1 = isInViewport(sectionsNode[0]);
